@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O.C.E.A.N — Live Attribution Demo</title>
+<meta name="description" content="O.C.E.A.N interactive demo — satellite oil spill detection, hindcasting, AIS attribution, Vessel Suspicion Index.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300..900&family=JetBrains+Mono:wght@400..700&family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+<canvas id="water" aria-hidden="true"></canvas>
+
+<header class="nav"><div class="nav-inner">
+  <a href="index.html" class="brand">
+    <span class="brand-mark"><span class="material-symbols-outlined">radar</span></span>
+    <span class="brand-text"><b>O.C.E.A.N.</b><small>Live Attribution Demo</small></span>
+  </a>
+  <div class="nav-right">
+    <span class="live-pill"><i></i>SYSTEM ONLINE</span>
+    <a href="index.html" class="btn btn-light btn-sm"><span class="material-symbols-outlined">arrow_back</span>Back to Overview</a>
+  </div>
+</div></header>
+
+<section class="case-header"><div class="case-inner">
+  <div>
+    <span class="chip">CASE FILE · OC-2026-0814-03</span>
+    <h1 id="caseTitle">Arabian Sea, 14 Aug 2026</h1>
+    <p id="caseBlurb">A satellite pass detects a dark slick. No vessel reported a spill.</p>
+  </div>
+  <div class="case-meta"><span>17.42°N 73.18°E</span><span>14 Aug 2026</span></div>
+</div></section>
+
+<main>
+  <div class="dashboard">
+    <div class="col">
+      <div class="panel stage-banner">
+        <span class="stage-ic"><span class="material-symbols-outlined" id="stageIc">description</span></span>
+        <div><div class="mono-label orange" id="stageLbl">Case Brief</div><div class="stage-title" id="stageTitle">Arabian Sea, 14 Aug 2026</div></div>
+        <div class="verdict-badge" id="verdictBadge"><i></i>Suspect identified</div>
+      </div>
+
+      <div class="map-wrap" id="mapWrap">
+        <div class="hud hud-l">O.C.E.A.N · TACTICAL VIEW</div>
+        <div class="hud hud-r" id="mapHudR">BRIEF</div>
+        <div class="hud hud-b" id="coords">17.42°N · 73.02°E</div>
+        <div class="scan-line" id="scanLine"></div>
+        <div class="tip" id="tip"></div>
+        <svg id="map" viewBox="0 0 760 500">
+          <defs>
+            <pattern id="mg" width="38" height="38" patternUnits="userSpaceOnUse"><path d="M38 0L0 0 0 38" fill="none" stroke="rgba(15,23,42,.07)"/></pattern>
+            <radialGradient id="sg"><stop offset="0" stop-color="#0F172A" stop-opacity=".75"/><stop offset=".7" stop-color="#334155" stop-opacity=".35"/><stop offset="1" stop-color="#334155" stop-opacity="0"/></radialGradient>
+          </defs>
+          <rect width="760" height="500" fill="url(#mg)"/>
+          <g class="axis"><text x="10" y="18">17.42°N</text><text x="10" y="490">17.18°N</text><text x="700" y="18">73.41°E</text><text x="700" y="490">73.02°E</text></g>
+          <path d="M670 478H730M670 474V482M730 474V482" stroke="#64748B"/><text x="700" y="470" text-anchor="middle" class="axis-t">20 km</text>
+
+          <g class="sv" data-max="1"><circle cx="473" cy="239" r="8" class="rng pr"/><circle cx="473" cy="239" r="8" class="rng pr" style="animation-delay:1.2s"/></g>
+          <path class="sv" data-min="2" id="hcLine" d="M473 239L267 349" fill="none" stroke="#0D9488" stroke-width="1.6" stroke-dasharray="6 5"/>
+          <g class="sv" data-min="2"><circle cx="267" cy="349" r="9" class="rng-o pr"/><circle cx="267" cy="349" r="3.5" fill="#FF5500"/>
+            <text x="267" y="370" text-anchor="middle" class="o-t">EST. ORIGIN</text><text x="267" y="382" text-anchor="middle" class="o-s">13 Aug · 14:20Z</text></g>
+          <g id="slick" class="slick">
+            <ellipse cx="473" cy="239" rx="46" ry="30" fill="url(#sg)"/>
+            <path class="sv slick-edge" data-min="1" d="M500 225L516 215L527 219L533 226L533 237L529 246L521 251L512 253L503 251L495 246L490 239L490 230Z"/>
+            <text x="473" y="200" text-anchor="middle" class="s-t" id="slickLbl">UNCLASSIFIED ANOMALY</text>
+          </g>
+          <g id="particles" class="sv" data-min="2"></g>
+          <line class="sv" data-min="5" x1="279" y1="229" x2="267" y2="349" stroke="#FF5500" stroke-width="1.4" stroke-dasharray="3 4"/>
+          <g id="tracks" class="sv" data-min="3"></g>
+          <g id="ships" class="sv" data-min="3"></g>
+        </svg>
+      </div>
+      <div class="caption-bar"><span class="mono-label">View</span><span id="captionTxt">Raw satellite pass. The dark patch is the anomaly awaiting classification.</span></div>
+    </div>
+
+    <div class="panel ai-panel">
+      <div class="ai-hdr"><span class="mono-label orange"><i class="dot"></i>O.C.E.A.N · Live readout</span><span class="mono-label">v2.4</span></div>
+      <div class="ai-body" id="aiBody"></div>
+    </div>
+  </div>
+
+  <div class="panel controller">
+    <div class="tl-track" id="tlTrack"></div>
+    <div class="ctrl-btns">
+      <div class="btn-grp">
+        <button class="btn btn-primary shimmer" id="playBtn"></button>
+        <button class="btn btn-light btn-sm" id="resetBtn" title="Reset"><span class="material-symbols-outlined">restart_alt</span></button>
+        <button class="btn btn-light btn-sm mono" id="speedBtn" title="Playback speed">1×</button>
+      </div>
+      <div class="ctrl-info" id="ctrlInfo"></div>
+    </div>
+  </div>
+  <div class="quick-nav" id="quickNav"></div>
+  <p class="kbd-hint">Tip: <kbd>Space</kbd> play/pause · <kbd>←</kbd> <kbd>→</kbd> change stage · hover vessels on the map</p>
+</main>
+
+<a href="index.html" class="back-float"><span class="material-symbols-outlined">home</span>Landing Page</a>
+<script src="demo.js"></script>
+</body>
+</html>

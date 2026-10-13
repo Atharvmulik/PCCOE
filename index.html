@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>O.C.E.A.N. — Offshore Culprit Evaluation &amp; Attribution Network</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300..900&family=JetBrains+Mono:wght@400..700&family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles_indes.css">
+</head>
+<body>
+
+<canvas id="water-canvas" aria-hidden="true"></canvas>
+<div class="cursor-dot" id="cursor-dot"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#">
+      <span class="brand-mark"><span class="material-symbols-outlined">radar</span></span>
+      <span class="brand-text"><b>O.C.E.A.N.</b><small>Maritime Forensic Mesh</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#threat-analysis">Threat Analysis</a>
+      <a href="#radar-detection">Radar Detection</a>
+      <a href="#hindcast-physics">Hindcast Physics</a>
+      <a href="#attribution">Attribution</a>
+    </nav>
+    <div class="nav-right">
+      <span class="live-pill"><i></i>LIVE CORE</span>
+      <a class="btn btn-primary btn-sm shimmer" href="demo.html">
+        <span class="material-symbols-outlined">play_circle</span>Live Case Replay
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge hero-in" style="--d:0">
+      <i class="dot"></i>
+      <b>OFFSHORE CULPRIT EVALUATION &amp; ATTRIBUTION NETWORK</b>
+      <span class="sep">|</span>
+      <span class="muted">AUTOMATED UNCLOS MARPOL ENFORCEMENT</span>
+    </div>
+
+    <h1 class="hero-in" style="--d:1">
+      No maritime spill goes untraced.<br>
+      <em>Reverse-physics</em> forensic attribution.
+    </h1>
+
+    <p class="lead hero-in" style="--d:2">
+      Autonomous cross-examination of European Space Agency Sentinel-1 C-SAR radar passes against dark AIS windowing, coupled with 10,000-particle reverse Lagrangian hydrodynamic ocean drift modeling.
+    </p>
+
+    <div class="cta-row hero-in" style="--d:3">
+      <a class="btn btn-primary btn-lg shimmer" href="demo.html">
+        <span class="material-symbols-outlined">target</span>Launch Attribution Demo
+      </a>
+      <a class="btn btn-light btn-lg" href="#pipeline-sequence">
+        <span class="material-symbols-outlined muted-ic">account_tree</span>Explore Forensic Pipeline
+      </a>
+    </div>
+
+    <div class="hud hero-in" style="--d:4">
+      <div class="hud-card tilt">
+        <span class="mono-label">Reverse Simulation</span>
+        <div class="hud-val orange"><span data-count="10000" data-suffix="+">10,000+</span></div>
+        <span class="hud-sub"><span class="material-symbols-outlined teal">waves</span>Lagrangian Particles</span>
+      </div>
+      <div class="hud-card tilt">
+        <span class="mono-label">Neural Inference</span>
+        <div class="hud-val">&lt; <span data-count="2" data-decimals="1" data-suffix="s">2.0s</span></div>
+        <span class="hud-sub"><span class="material-symbols-outlined cyan">satellite_alt</span>Sentinel-1 C-SAR IW</span>
+      </div>
+      <div class="hud-card tilt">
+        <span class="mono-label">Vessel Index</span>
+        <div class="hud-val">4-Factor VSI</div>
+        <span class="hud-sub"><span class="material-symbols-outlined orange">analytics</span>Hydrodynamic Weight</span>
+      </div>
+      <div class="hud-card tilt">
+        <span class="mono-label">Legal Standard</span>
+        <div class="hud-val teal">UNCLOS IV</div>
+        <span class="hud-sub"><span class="material-symbols-outlined teal">verified</span>Court Admissible</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIPELINE -->
+  <section class="section" id="pipeline-sequence">
+    <div class="panel reveal">
+      <div class="panel-head">
+        <div>
+          <span class="chip orange">5-STAGE INVESTIGATION WORKFLOW</span>
+          <h2>The Forensic Attribution Sequence</h2>
+          <p class="sub">From orbital synthetic aperture radar acquisition to courtroom-certified culpability index in minutes.</p>
+        </div>
+        <a class="btn btn-soft" href="demo.html">RUN FULL WORKFLOW IN SIMULATOR<span class="material-symbols-outlined">arrow_forward</span></a>
+      </div>
+
+      <div class="stages-wrap">
+        <div class="track"><div class="track-fill" id="stage-progress"></div></div>
+        <div class="stages" id="stages">
+          <article class="stage active" data-stage="1">
+            <div>
+              <div class="stage-top"><span class="stage-no">Stage 01</span><span class="stage-dot"></span></div>
+              <h3>Threat Context</h3>
+              <p>Sentinel-1 SAR synthetic radar swath ingests high-resolution sea surface backscatter to delineate anomalous low-backscatter dampening patches.</p>
+            </div>
+            <div class="stage-foot"><span class="material-symbols-outlined orange">satellite_alt</span>ESA Copernicus</div>
+          </article>
+          <article class="stage" data-stage="2">
+            <div>
+              <div class="stage-top"><span class="stage-no">Stage 02</span><span class="stage-dot"></span></div>
+              <h3>Discharge Window</h3>
+              <p>Correlates temporal slick volume and weather state to calculate an exact backward release window of interest across the designated maritime corridor.</p>
+            </div>
+            <div class="stage-foot"><span class="material-symbols-outlined teal">schedule</span>T - 18.4 hrs Window</div>
+          </article>
+          <article class="stage" data-stage="3">
+            <div>
+              <div class="stage-top"><span class="stage-no">Stage 03</span><span class="stage-dot"></span></div>
+              <h3>Radar Detection</h3>
+              <p>Custom convolutional neural net eliminates look-alikes—filtering biogenic algal surfactants, upwelling zones, and wind calm shadows.</p>
+            </div>
+            <div class="stage-foot"><span class="material-symbols-outlined cyan">filter_tilt_shift</span>U-Net 96.3% Acc</div>
+          </article>
+          <article class="stage" data-stage="4">
+            <div>
+              <div class="stage-top"><span class="stage-no">Stage 04</span><span class="stage-dot"></span></div>
+              <h3>Hindcast Physics</h3>
+              <p>10,000 particles backpropagated using Runge-Kutta 4th order over CMEMS surface currents and ECMWF 10m wind fields to pinpoint discharge locus.</p>
+            </div>
+            <div class="stage-foot"><span class="material-symbols-outlined orange">history</span>OpenDrift Hydro</div>
+          </article>
+          <article class="stage" data-stage="5">
+            <div>
+              <div class="stage-top"><span class="stage-no">Stage 05</span><span class="stage-dot"></span></div>
+              <h3>Legal Attribution</h3>
+              <p>Intersects particle cloud with historical vessel AIS corridor + loitering / dark transponder gaps to generate court-ready UNCLOS dossier.</p>
+            </div>
+            <div class="stage-foot"><span class="material-symbols-outlined teal">gavel</span>MARPOL Dossier</div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE -->
+  <section class="section" id="threat-analysis">
+    <div class="reveal">
+      <span class="chip orange outline">SYSTEM ARCHITECTURE BENTO</span>
+      <h2 id="radar-detection">Engineered from Orbit to the Ocean Floor</h2>
+      <p class="sub" id="hindcast-physics">How O.C.E.A.N. bridges orbital synthetic aperture imagery with naval hydrodynamic fluid dynamics to establish indisputable legal chain-of-custody.</p>
+    </div>
+
+    <div class="bento">
+      <article class="module tilt reveal" style="--i:0">
+        <div>
+          <div class="ic-box" style="background:#FFEDE5;color:#FF5500"><span class="material-symbols-outlined">satellite_alt</span></div>
+          <span class="mod-no" style="color:#FF5500">Module 01</span>
+          <h3>C-SAR Neural Extraction</h3>
+          <p>Interferometric Sentinel-1 radar data processed via custom U-Net architectures, filtering wind shadows, algal blooms, and low-wind slicks with 96.3% precision.</p>
+        </div>
+        <div class="mod-foot">ESA Copernicus API // SNAP Engine</div>
+      </article>
+      <article class="module tilt reveal" style="--i:1">
+        <div>
+          <div class="ic-box" style="background:#F5F4F0;color:#0F172A"><span class="material-symbols-outlined">waves</span></div>
+          <span class="mod-no" style="color:#64748B">Module 02</span>
+          <h3>Lagrangian Reverse Hindcast</h3>
+          <p>Inverts temporal vectors across CMEMS ocean current grids and ECMWF 10m wind fields. Backprojects thousands of virtual tracers to their precise release locus.</p>
+        </div>
+        <div class="mod-foot">OpenDrift // Runge-Kutta 4th Order</div>
+      </article>
+      <article class="module tilt reveal" style="--i:2">
+        <div>
+          <div class="ic-box" style="background:#E0F2FE;color:#0284C7"><span class="material-symbols-outlined">signal_cellular_off</span></div>
+          <span class="mod-no" style="color:#0284C7">Module 03</span>
+          <h3>Dark AIS Anomaly Mining</h3>
+          <p>Flags transponder switch-offs, sudden speed drops, and suspicious loitering patterns along dense maritime routes that correlate with bilge discharge timings.</p>
+        </div>
+        <div class="mod-foot">Spire / AISHub Stream Ingestion</div>
+      </article>
+      <article class="module tilt reveal" style="--i:3" id="attribution">
+        <div>
+          <div class="ic-box" style="background:#CCFBF1;color:#0D9488"><span class="material-symbols-outlined">gavel</span></div>
+          <span class="mod-no" style="color:#0D9488">Module 04</span>
+          <h3>Legal Dossier Synthesis</h3>
+          <p>Automatically packages satellite timestamps, probability envelopes, and vessel trajectory intersections into certified documents for Coast Guard prosecution.</p>
+        </div>
+        <div class="mod-foot">UNCLOS Annex I / MARPOL Compliant</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="cta-panel reveal">
+      <div class="glow g1"></div><div class="glow g2"></div>
+      <div class="cta-body">
+        <div class="cta-text">
+          <span class="chip dark"><i class="ping"></i>LIVE INCIDENT TESTBED: CASE DK-2026-081</span>
+          <h2>Experience the forensic investigation pipeline.</h2>
+          <p>Inspect raw synthetic aperture radar anomalies, step through reverse particle drift vectors, cross-examine dark AIS corridors, and interrogate candidate vessel tracks inside the interactive investigation sandbox.</p>
+          <div class="tags"><span>1,280 km² Area</span><span>4 Suspect Tankers</span><span>Runge-Kutta Integrator</span></div>
+        </div>
+        <div class="cta-action">
+          <a class="btn btn-primary btn-xl shimmer" href="demo.html"><span class="material-symbols-outlined">explore</span>Open Interactive Forensic Replay</a>
+          <small>Launches Full Screen Forensic Workbench</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <section class="section">
+    <div class="compliance reveal">
+      <div>
+        <span class="mono-label strong">INTEROPERABILITY &amp; STATUTORY COMPLIANCE</span>
+        <h3>Conforming to International Maritime Standards</h3>
+      </div>
+      <div class="badges">
+        <span><span class="material-symbols-outlined cyan">satellite</span>Copernicus Sentinel-1</span>
+        <span><span class="material-symbols-outlined teal">tsunami</span>CMEMS Mercator Ocean</span>
+        <span><span class="material-symbols-outlined orange">code</span>NOAA PyGNOME</span>
+        <span><span class="material-symbols-outlined ink">policy</span>IMO MARPOL 73/78</span>
+        <span><span class="material-symbols-outlined teal">balance</span>UNCLOS Annex I</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="foot-brand">
+      <span class="foot-mark">O</span>
+      <div><b>O.C.E.A.N. MARITIME INTELLIGENCE</b><small>C-SAR Attribution Mesh // 2026</small></div>
+    </div>
+    <div class="foot-links">
+      <a href="#threat-analysis">Threat Analysis</a>
+      <a href="#radar-detection">Radar Detection</a>
+      <a href="#hindcast-physics">Hindcast Physics</a>
+      <a class="demo-link" href="demo.html">Interactive Demo<span class="material-symbols-outlined">open_in_new</span></a>
+    </div>
+  </div>
+</footer>
+
+<script src="script_index.js"></script>
+</body>
+</html>
